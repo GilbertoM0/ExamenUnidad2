@@ -18,8 +18,11 @@ USD = MXN / 17.8
 6. Compruebe con 2 datos que no conozca el modelo
     
     ![image](https://github.com/user-attachments/assets/1a9d0269-c0f3-4ebc-ae95-c775d5915d55)
+   DESPUES VOLVI A PROBAR CON MENOS EPOCH(15) Y TAMBIEN TODO CORRECTO:
+   ![image](https://github.com/user-attachments/assets/2fc555ca-9610-4d1d-84d6-cdc94d1994c2)
 
-7. Guarde el modelo con extensión keras
+
+8. Guarde el modelo con extensión keras
     ![image](https://github.com/user-attachments/assets/dc714763-6c09-490d-9b77-aeadd0857a1f)
 
 
