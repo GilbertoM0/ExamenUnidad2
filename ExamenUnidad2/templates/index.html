@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor MXN a USD</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Conversor de Salario: MXN → USD</h1>
+
+    <div class="contenedor">
+        <label for="mxn">Ingrese salario en MXN:</label>
+        <input type="number" id="mxn" placeholder="Ej. 10000">
+        <button onclick="convertir()">Convertir</button>
+    </div>
+
+    <p id="resultado"></p>
+
+    <script>
+        function convertir() {
+            const mxn = parseFloat(document.getElementById('mxn').value);
+            if (isNaN(mxn)) {
+                document.getElementById('resultado').textContent = 'Por favor, ingrese un número válido.';
+                return;
+            }
+
+            fetch('/convertir', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ mxn: mxn })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('resultado').textContent =
+                    `${mxn.toFixed(2)} MXN ≈ ${data.usd.toFixed(2)} USD`;
+            })
+            .catch(error => {
+                document.getElementById('resultado').textContent = 'Error al convertir.';
+                console.error(error);
+            });
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #f9f9f9;
+        }
+        .contenedor {
+            margin: 20px auto;
+            padding: 20px;
+        }
+        input, button {
+            font-size: 1.2em;
+            padding: 10px;
+            margin: 10px;
+        }
+        #resultado {
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 1.4em;
+            color: green;
+        }
+    </style>
+</body>
+</html>
