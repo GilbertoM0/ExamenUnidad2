@@ -1,4 +1,6 @@
 # ExamenUni
+![image](https://github.com/user-attachments/assets/3ecbe9cc-9a96-44f6-9e57-1e8d0faa8b1b)
+
 Instrucciones: 
 Control:  21420214
 Se tienen salarios en pesos mexicanos (MXN) y se desea en dólares (USD), el tipo 
